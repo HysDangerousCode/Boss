@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Boss直聘-职位详情页</title>
+    <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="../css/mains.css">
+</head>
+
+<body>
+    <div class="wrapper" id="details">
+        <div class="top-bar flex padded">
+            <div class="detail-logo">
+                <a href="../html/index.html">
+                    <img :src="job.logo" alt="">
+                </a>
+            </div>
+            <div class="detail-inner flex">
+                <input type="text" placeholder="搜索职位">
+                <button class="search-icon" onclick="clicked()"></button>
+            </div>
+        </div>
+        <div class="job-info padded">
+            <div class="title flex">
+                <span>{{job.title}}</span>
+                <span class="salary">{{job.salary}}</span>
+            </div>
+            <div class="props flex">
+                <div class="cond">
+                    <span v-for="(tag,index) in job.tags">{{tag}}</span>
+                </div>
+                <div>
+                    <p>发布于04月12日</p>
+                </div>
+            </div>
+            <div class="tags">
+                <span v-for="label in job.labels">{{label}}</span>
+            </div>
+        </div>
+        <div class="user-info flex padded">
+            <div class="user-icon">
+                <!-- <img :src="job.avatar" alt=""> -->
+                <img :src="job.user.avatar" alt="">
+            </div>
+            <div class="intro">
+                <div class="name flex">
+                    <span>{{job.user.name}}</span>
+                    <!-- <span class="like">{{job.user.like}}</span> -->
+                    <!-- <span>丁先生</span> -->
+                    <span class="like">感兴趣</span>
+                </div>
+                <div class="desc">
+                    <span v-for="title in job.user.title">{{title}}</span>
+                </div>
+            </div>
+            <div class="user-btn">
+                <button class="btn" onclick="clicked()">立即沟通</button>
+            </div>
+        </div>
+        <div class="job-detail">
+            <div class="padded">
+                <h3>职位描述</h3>
+                <div class="text">
+                    <p v-html="job.body"></p>
+                </div>
+            </div>
+            <div class="padded">
+                <h3>团队介绍</h3>
+                <div class="tags">
+                    <span v-for="team in job.team">{{team}}</span>
+                </div>
+            </div>
+            <div class="padded">
+                <h3>公司介绍</h3>
+                <div class="text">
+                    <p v-html="job.company.body"></p>
+                </div>
+            </div>
+            <div class="padded">
+                <h3>工商信息</h3>
+                <div class="text">
+                    <h4>{{job.company.full_name}}</h4>
+                    <table class="padded flex">
+                        <tr class="flex">
+                            <td>
+                                <span>法人代表：</span>
+                                <span>{{job.company.props.法人代表}}</span>
+                            </td>
+                            <td>
+                                <span>注册资本：</span>
+                                <span>{{job.company.props.注册资本}}</span>
+                            </td>
+                        </tr>
+                        <tr class="flex">
+                            <td>
+                                <span>成立时间：</span>
+                                <span>{{job.company.props.成立时间}}</span>
+                            </td>
+                            <td>
+                                <span>经营状态：</span>
+                                <span>{{job.company.props.经营状态}}</span>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="gray">
+                        <small>数据来源：企查查</small>
+                    </div>
+                </div>
+            </div>
+            <!-- 地图-地址模块 -->
+            <!-- <div class="padded">
+                <h3>工作地址</h3>
+                <div class="map"></div>
+            </div> -->
+            <!-- 地图-地址模块 -->
+            <div class="company-info flex padded">
+                <div class="company-icon">
+                    <img :src="job.company.logo" alt="">
+                </div>
+                <div class="info">
+                    <div class="name flex">
+                        <span>{{job.company.name}}</span>
+                        <button class="btn">关注该公司</button>
+                    </div>
+                    <div class="desc">{{job.company.full_name}}</div>
+                    <div class="tags">
+                        <span v-for="tag in job.company.tags">{{tag}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="related-jobs paddld">
+                <h3>相似职位</h3>
+                <div>
+                    <ul>
+                        <li v-for="item in job.jobs">
+                            <a href="#" class="job-item flex">
+                                <div class="chart">
+                                    <img :src="item.logo" alt="">
+                                    <!-- <img src="../img/109.jpg" alt=""> -->
+                                </div>
+                                <div class="text">
+                                    <div class="title flex">
+                                        <h4>{{item.title}}</h4>
+                                        <span class="salary">{{item.salary}}</span>
+                                    </div>
+                                    <div class="com flex">
+                                        <div class="company">
+                                            <span>{{item.company}}</span>
+                                        </div>
+                                        <button class="btn">立即沟通</button>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="related-companies padded">
+                <h3>推荐公司：</h3>
+                <div class="tags">
+                    <a href="#" v-for="name in job.companies">{{name.name}}</a>
+                </div>
+            </div>
+            <div class="job-footer breadcrumb-nav padded">
+                <a href="#" v-for="path in job.path">{{path.title}}</a>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../frames/vue/vue_2.6.10.js"></script>
+<script src="../js/details.js"></script>
+<script src="../js/test.js"></script>
+<!-- 注：请根据访问者本地服务器的端口修改port的值 -->
+</html>

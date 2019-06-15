@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Boss直聘-首页</title>
+    <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="../css/mains.css">
+</head>
+
+<body>
+    <div class="wrapper" id="index">
+        <header class="home-header">
+            <!-- <div class="top_text"> -->
+            <img src="../img/home-search-text.png" alt="">
+            <!-- </div> -->
+            <div class="search">
+                <input type="text" placeholder="搜索职位/公司" maxlength="20">
+                <button onclick="clicked()">搜索</button>
+            </div>
+        </header>
+        <section class="home-categories">
+            <dl v-for="item in cartegories">
+                <dt>
+                  <div class="icon">
+                    <img :src="item.icon" alt="">
+                  </div>
+                  <!-- <span>技术</span> -->
+                  <h4>{{item.name}}</h4>
+                </dt>
+                <dd>
+                    <a href="./list.html" class="tag" v-for="tag in item.tags">{{tag}}</a>
+                </dd>
+            </dl>
+        </section>
+        <footer class="home-footer">
+            <p>违法和不良信息举报邮箱：jubao@kanzhun.com</p>
+            <p>企业服务热线和举报投诉：400 065 5799</p>
+        </footer>
+    </div>
+</body>
+<script src="../frames/vue/vue_2.6.10.js"></script>
+<script src="../js/index.js"></script>
+<script src="../js/test.js"></script>
+<!-- 注：请根据访问者本地服务器的端口修改port的值 -->
+</html>

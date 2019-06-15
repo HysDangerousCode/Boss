@@ -1,0 +1,27 @@
+[
+  {
+    "name":"技术",
+    "icon":"../img/technology.png",
+    "tags":["Java","PHP","web前端","数据挖掘","c++","Python","Andriod","IOS"]
+  },
+  {
+    "name":"设计",
+    "icon":"../img/operate.png",
+    "tags":["UI设计师","平面设计师","交互设计师","设计总监"]
+  },
+  {
+    "name":"市场",
+    "icon":"../img/market.png",
+    "tags":["市场营销","商务渠道","品牌公关","市场总监","策划经理","活动策划","SEO","SEM"]
+  },
+  {
+    "name":"运营",
+    "icon":"../img/product.png",
+    "tags":["用户运营","产品运营","新媒体运营","运营总监","商家运营","电商运营","编辑","客服经理"]
+  },
+  {
+    "name":"职能/高级管理",
+    "icon":"../img/senior.png",
+    "tags":["人力资源","行政","财务","会计","HRBP"]
+  }
+]

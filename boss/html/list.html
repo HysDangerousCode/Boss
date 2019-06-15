@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Boss直聘-列表页</title>
+    <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="../css/mains.css">
+</head>
+
+<body>
+    <div class="wrapper" id="list">
+        <header class="list-header flex">
+            <div class="home">
+                <a href="./index.html">
+                    <img src="../img/icon-home.png" alt="">
+                </a>
+            </div>
+            <div class="inner flex">
+                <input type="text" placeholder="web前端" maxlength="20">
+                <span>&times;</span>
+            </div>
+            <button onclick="clicked()">搜索</button>
+        </header>
+        <!-- 信息过滤器 -->
+        <div class="filter flex">
+            <dl class="active1" v-for="item in filters">
+                <dt>{{item.name}}</dt>
+                <dd>
+                    <ul>
+                        <li class="active" v-for="option in item.options">{{option.text}}</li>
+                    </ul>
+                </dd>
+            </dl>
+        </div>
+        <div class="job-list flex">
+            <ul>
+                <li v-for="item in jobs">
+                    <a href="./detail.html" class="job-item flex">
+                        <div class="chart">
+                            <img :src="item.logo" alt="">
+                        </div>
+                        <div class="text">
+                            <div class="title flex">
+                                <h4>{{item.title}}</h4>
+                                <span class="salary">{{item.salary}}</span>
+                            </div>
+                            <div class="company">{{item.company}}</div>
+                            <div class="props">
+                                <span v-for="tag in item.tags">{{tag}}</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+<script src="../frames/vue/vue_2.6.10.js"></script>
+<script src="../js/list.js"></script>
+<script src="../js/test.js"></script>
+<!-- 注：请根据访问者的本地服务器的端口修改port的值 -->
+</html>
